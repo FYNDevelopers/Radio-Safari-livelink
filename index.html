@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">    
+    <title>Live Link</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mediaelementplayer.css">
+
+</head>
+
+<body>
+
+    <section id="top">
+        <h1>Outside Broadcast</h1>
+    </section>
+
+
+    <section id="bottom">
+        <section id="left">
+            <img src="radiosafarilogo.jpg" width="200px" draggable="false" ondragstart="return false;">
+        </section>
+
+
+        <section id="right">
+            
+            <h2>Radio Safari</h2>
+
+            <div id="linkplayer">
+
+                <div id="container">
+                    <section style="display: none;">
+                        <form action="#" method="get">
+                            <label>Language <select name="lang"></select></label>
+                            <label>Stretching (Video Only)<select name="stretching"></select></label>
+                        </form>
+                    </section>
+
+
+                    <div class="players" id="player2-container">
+                        <div style="padding: 20px; text-align: center;">
+                            <label>Source <select name="sources" style="padding: 5px; border: none; outline:none; color:red;">
+                                <option value="https://listen.fynradio.com/radio/8040/radio.mp3">Link 1</option>
+                                <option value="https://listen.fynradio.com/radio/8050/radio.mp3">Link 2</option>
+                                <option value="https://listen.fynradio.com/radio/8060/radio.mp3">Link 3</option>
+                            </select>
+                            </label>
+                        </div>
+                        <div class="media-wrapper">
+                            <audio id="player2" preload="none" controls >
+                                <source src="https://listen.fynradio.com/radio/8040/radio.mp3" type="audio/mp3">
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="license">...</div>
+            <p>&copy FYN Developers | FYN Radio - Streaming solutions for Broadcasters | www.fynradio.com</p>
+
+        </section>
+    </section>
+
+
+    <script src="mediaelement-and-player.js"></script>
+    <script src="demo.js"></script>
+
+
+    <script>
+        window.onload = function(){
+
+
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == XMLHttpRequest.DONE) {
+                    //var exp_date = alert xhr.responseText;
+                    document.getElementById("license").innerHTML = `License renewal date: ${xhr.responseText}`
+                }
+            }
+            xhr.open('GET', 'https://script.google.com/macros/s/AKfycbycCrqsFp5L3vs8_jEdoQgZlJOx2IE-c0CeToct2ZMb0SoM9bQ/exec?action=exp_date&radio_name=radiosafari', true);
+            xhr.send(null);
+        }
+
+    </script>
+
+
+</body>
+</html>
