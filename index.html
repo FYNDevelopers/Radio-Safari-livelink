@@ -1,8 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">    
+    <meta charset="UTF-8">
     <title>Radio Safari Live Link</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
     <link rel="stylesheet" href="style.css">
@@ -24,12 +24,12 @@
 
 
         <section id="right">
-            
+
             <h2>Radio Safari</h2>
 
             <div id="linkplayer">
 
-                <div id="container">
+                <div id="container" style="visibility:hidden">
                     <section style="display: none;">
                         <form action="#" method="get">
                             <label>Language <select name="lang"></select></label>
@@ -54,10 +54,16 @@
                         </div>
                     </div>
                 </div>
+
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <h1>License has expired</h1>
+
+                </div>
+
             </div>
 
 
-            <div id="license">...</div>
+            <div id="license" style="color:red;">...</div>
             <p>&copy FYN Developers | FYN Radio - Streaming solutions for Broadcasters | www.fynradio.com</p>
 
         </section>
@@ -69,7 +75,7 @@
 
 
     <script>
-        window.onload = function(){
+        window.onload = function() {
 
 
             var xhr = new XMLHttpRequest();
@@ -82,9 +88,9 @@
             xhr.open('GET', 'https://script.google.com/macros/s/AKfycbycCrqsFp5L3vs8_jEdoQgZlJOx2IE-c0CeToct2ZMb0SoM9bQ/exec?action=exp_date&radio_name=radiosafari', true);
             xhr.send(null);
         }
-
     </script>
 
 
 </body>
+
 </html>
